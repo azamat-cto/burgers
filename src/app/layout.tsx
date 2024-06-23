@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import "@/styles/index.css";
 import { fontAclonica, fontMontserrat } from "@/lib/fonts";
 import { cn } from "@/lib/utils";
+import Header from "@/components/header";
 
 export const metadata: Metadata = {
     title: "",
@@ -20,6 +21,7 @@ function RootLayout({ children }: Props) {
             lang="en"
         >
             <body className="bg-background text-foreground font-sans antialiased">
+                <Header />
                 {children}
             </body>
         </html>
