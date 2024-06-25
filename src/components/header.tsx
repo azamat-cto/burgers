@@ -1,7 +1,8 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
+import * as VisuallyHidden from "@radix-ui/react-visually-hidden";
 import { Button } from "./ui/button";
 import {
     Drawer,
@@ -13,10 +14,28 @@ import {
 } from "./ui/drawer";
 import { Icons } from "@/components/icons";
 import { Menu } from "lucide-react";
+import { useScroll, useMotionValueEvent } from "framer-motion";
+import { cn } from "@/lib/utils";
 
 function Header() {
+    const [scrollHeader, setScrollHeader] = useState(false);
+    const { scrollY } = useScroll();
+
+    useMotionValueEvent(scrollY, "change", (latest) => {
+        if (latest >= 50) {
+            setScrollHeader(true);
+        } else {
+            setScrollHeader(false);
+        }
+    });
+
     return (
-        <header className="fixed left-0 top-0 z-50 w-full bg-background transition-shadow">
+        <header
+            className={cn(
+                "fixed left-0 top-0 z-50 w-full bg-background transition-shadow",
+                scrollHeader && "shadow-[0_4px_16px_hsla(22,100%,8%,0.1)]",
+            )}
+        >
             <div className="container">
                 <div className="flex items-center justify-between h-16">
                     <Link
@@ -85,6 +104,12 @@ function Header() {
                             </Button>
                         </DrawerTrigger>
                         <DrawerContent>
+                            <VisuallyHidden.Root>
+                                <DrawerHeader>
+                                    <DrawerTitle></DrawerTitle>
+                                    <DrawerDescription></DrawerDescription>
+                                </DrawerHeader>
+                            </VisuallyHidden.Root>
                             <nav className="pt-[4.5rem] pb-[3.5rem]">
                                 <ul className="flex flex-col items-center gap-y-8">
                                     <li>

@@ -22,7 +22,7 @@ function RootLayout({ children }: Props) {
         >
             <body className="bg-background text-foreground font-sans antialiased">
                 <Header />
-                {children}
+                <main className="overflow-hidden">{children}</main>
             </body>
         </html>
     );
