@@ -12,7 +12,7 @@ function Recipe() {
             className="recipe section pt-20 pb-4 overflow-hidden"
             id="recipe"
         >
-            <h2 className="section__title font-aclonica font-normal text-2xl text-heading text-center mb-8">
+            <h2 className="section__title font-aclonica text-2xl text-heading text-center mb-8">
                 Our Secret Recipe
             </h2>
             <div className="recipe__container container">

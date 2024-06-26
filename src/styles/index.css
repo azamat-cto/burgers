@@ -5,6 +5,7 @@
 @layer base {
     :root {
         --background: 0 0% 100%;
+        --background-alt: 34 100% 88%;
         --foreground: 222.2 84% 4.9%;
         --heading: 22 100% 8%;
 

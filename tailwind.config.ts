@@ -17,6 +17,7 @@ const config = {
         extend: {
             colors: {
                 background: "hsl(var(--background))",
+                "background-alt": "hsl(var(--background-alt))",
                 foreground: "hsl(var(--foreground))",
                 heading: "hsl(var(--heading))",
                 card: {
